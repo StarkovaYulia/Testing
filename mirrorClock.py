@@ -90,6 +90,5 @@ class mirrorClock:
 
 if __name__ == "__main__":
     clock = mirrorClock()
-    mirrorTime = "11:40"
-    print(clock.what_is_the_time(mirrorTime))
-    pass
+
+    print(clock.what_is_the_time("   "))

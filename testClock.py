@@ -6,7 +6,7 @@ class WhatIsTheTime(unittest.TestCase):
 
     # positive tests
 
-    def test_null_or_empty_string_input(self):
+    def test_empty_string_input(self):
         # Если на вход не дано ничего или дана пустая строка (не имеет значение длина такой строки)
         clock = mirrorClock()
         self.assertEqual("", clock.what_is_the_time())
@@ -31,6 +31,12 @@ class WhatIsTheTime(unittest.TestCase):
         self.assertEqual(rightOutputData, clock.what_is_the_time(inputData))
 
     # negative tests
+    def test_string_with_spaces_only(self):
+        # Если на вход пришли одни пробелы, то выдать ошибку
+        clock = mirrorClock()
+        inputData = "  "
+        with self.assertRaises(ValueError):
+            clock.what_is_the_time(inputData)
 
     def test_not_string_type_for_input_raises_exception(self):
         # Если на вход дано НЕ str, а int, список, массив или что-то другое
